@@ -1,6 +1,6 @@
 /* eslint react-refresh/only-export-components: off */
 import { createContext, useState, useEffect } from "react";
-import api from "../pages/api";
+import api from "../api";
 import socket from "../socket";
 
 export const ChatContext = createContext();

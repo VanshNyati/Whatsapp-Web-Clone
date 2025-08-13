@@ -23,7 +23,7 @@ const io = new Server(server, {
   },
 });
 
-app.use(cors());
++app.use(cors({ origin: process.env.ALLOW_ORIGIN?.split(",") || "*" }));
 app.use(express.json());
 
 mongoose
