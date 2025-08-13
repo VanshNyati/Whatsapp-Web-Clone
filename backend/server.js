@@ -23,7 +23,7 @@ const io = new Server(server, {
   },
 });
 
-+app.use(cors({ origin: process.env.ALLOW_ORIGIN?.split(",") || "*" }));
+app.use(cors({ origin: process.env.ALLOW_ORIGIN?.split(",") || "*" }));
 app.use(express.json());
 
 mongoose
@@ -33,7 +33,7 @@ mongoose
 
 app.use("/api/chats", chatsRoute);
 app.use("/api/messages", messagesRoute);
-app.use("/api/send", sendRoute);
+app.use("/api/send", sendRoute(io));
 app.use("/api/webhook", webhookRoute(io));
 
 io.on("connection", (socket) => {
